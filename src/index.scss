@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap);
+@import './utils/variables/variables.scss';
+
+html{
+    font-family: 'Montserrat', 'Trebuchet MS', 'Helvetica', 'sans-serif';
+}
+
+body{
+    margin: 0;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    color:$main-color;
+    font-size: 20px;
+}
+
+p {
+    color: $main-color;
+}
+
+li {
+    color: $main-color;
+}
+
+a {
+    color: $main-color;
+    font-weight: 500;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 768px) {
+        width: 100%;
+    }
+}
