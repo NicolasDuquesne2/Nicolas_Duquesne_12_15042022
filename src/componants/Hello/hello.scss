@@ -1,0 +1,15 @@
+@import '../../utils/variables/variables.scss';
+
+.hello{
+    &__title {
+        font-size: 3rem;
+        & > span{
+            color: $third-color;
+        }
+    }
+
+    &__sentence{
+        font-size: 1.125rem;
+    }
+
+}
