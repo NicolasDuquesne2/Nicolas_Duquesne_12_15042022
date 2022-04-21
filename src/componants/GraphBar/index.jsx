@@ -1,66 +1,100 @@
-import React from 'react';
+import React from 'react'
+import {useEffect, useState} from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import CustomTooltip from '../CustomTooltip';
 import './graphbar.scss'
 
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: '1',
+    kg: 69.2,
+    kcal: 250,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: '2',
+    kg: 69.3,
+    kcal: 300,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: '3',
+    kg: 70.1,
+    kcal: 356,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: '4',
+    kg: 69.9,
+    kcal: 150,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: '5',
+    kg: 69.8,
+    kcal: 170,
   },
   {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: '6',
+    kg: 70.5,
+    kcal: 180,
   },
   {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: '7',
+    kg: 69.2,
+    kcal: 120,
+  },
+  {
+    name: '8',
+    kg: 69.2,
+    kcal: 200,
+  },
+  {
+    name: '9',
+    kg: 69.5,
+    kcal: 250,
+  },
+  {
+    name: '10',
+    kg: 69.7,
+    kcal: 300,
   },
 ];
 
 function GraphBar() {
+
+  const [fTick, setfTick] = useState(0)
+  const [sTick, setsTick] = useState(0)
+  const [tTick, settTick] = useState(0)
+ 
+  useEffect(() =>{
+    //sets 3 ticks from datas. Uses arithmetic progession methode 
+    setfTick(Math.trunc(Math.min.apply(null, data.map(item => item.kg))))
+    settTick(Math.round(Math.max.apply(null, data.map(item => item.kg))))
+    setsTick(() => {
+      const inter = 2
+      const r = (tTick-fTick)/inter
+      return fTick + (inter/2)*r
+    })
+  }, [fTick, tTick])
   
     return (
 
       <div className="graph-group">
         <p className="graph-group__title">Activité quotidienne</p>
-        <ResponsiveContainer  width="100%">
-        <BarChart data={data} barGap={-40} width={100} height={150}>
-            <XAxis dataKey='name' />
-            <YAxis orientation='right' padding={{ top: 40}} axisLine={false} />
-            <Tooltip />
-            <Legend  verticalAlign='top' align='right'/>
-            <Bar dataKey="uv" fill="#000000" maxBarSize={10} radius={[10,10,0,0]}/>
-            <Bar dataKey="pv" fill="#E60000" maxBarSize={10} radius={[10,10,0,0]}/>
+        <ResponsiveContainer  width="100%" height="100%">
+        <BarChart data={data} barGap={-40}>
+            <XAxis dataKey='name' tickLine={false}/>
+            <YAxis 
+            orientation='right' 
+            padding={{ top: 40}} 
+            axisLine={false} 
+            tickLine={false} 
+            tickCount={3}  
+            dataKey='kg' 
+            ticks={[fTick, sTick, tTick]} 
+            domain={['dataMin', 'dataMax']}
+            />
+            <Tooltip content={<CustomTooltip />}/>
+            <Legend  verticalAlign='top' align='right' iconType="cicle"/>
+            <Bar dataKey="kg" name={`Poids (kg)`} fill="#000000" maxBarSize={10} radius={[10,10,0,0]}/>
+            <Bar dataKey="kcal" name={`Calories brûlées (kCal)`} fill="#E60000" maxBarSize={10} radius={[10,10,0,0]}/>
           </BarChart>
         </ResponsiveContainer>
       </div>
