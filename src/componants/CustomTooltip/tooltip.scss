@@ -1,0 +1,15 @@
+@import '../../utils/variables/variables.scss';
+
+.tooltip {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: $third-color;
+    padding: 8px 6px 8px 6px;
+
+    & > p {
+        font-size: 0.4375rem;
+        color: $sec-color;
+        text-align: center;
+    }
+}
