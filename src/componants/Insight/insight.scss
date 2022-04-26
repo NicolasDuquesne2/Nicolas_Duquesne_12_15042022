@@ -1,0 +1,43 @@
+@import '../../utils/variables/variables.scss';
+
+.insight-wrapper {
+    display: flex;
+    padding: 31px;
+    background: #FBFBFB;
+    align-items: center;
+    gap: 25px;
+
+    &__icon-wrapper {
+        &--red {
+            display: inline-block;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fbeaea;
+        }
+
+        &--blue {
+            display: inline-block;
+            padding: 20px;
+            border-radius: 8px;
+            background: #e9f4fb;
+        }
+
+        &--yellow {
+            display: inline-block;
+            padding: 20px;
+            border-radius: 8px;
+            background: #faf6e5;
+        }
+    }
+
+    &__text-wrapper > h4 {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    &__text-wrapper > p {
+        margin: 0;
+        font-size: 0.87rem;
+        color: $fourth-color;
+    }
+}

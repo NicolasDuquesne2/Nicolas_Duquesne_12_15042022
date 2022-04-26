@@ -7,7 +7,9 @@ html{
 
 body{
     margin: 0;
-    overflow-x: hidden
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
 }
 
 
@@ -38,8 +40,4 @@ a {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-
-    @media (min-width: 768px) {
-        width: 100%;
-    }
 }

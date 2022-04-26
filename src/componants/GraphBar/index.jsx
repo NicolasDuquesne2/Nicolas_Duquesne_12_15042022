@@ -40,22 +40,10 @@ const data = [
     kg: 69.2,
     kcal: 120,
   },
-  {
-    name: '8',
-    kg: 69.2,
-    kcal: 200,
-  },
-  {
-    name: '9',
-    kg: 69.5,
-    kcal: 250,
-  },
-  {
-    name: '10',
-    kg: 69.7,
-    kcal: 300,
-  },
 ];
+
+
+
 
 function GraphBar() {
 
@@ -78,23 +66,23 @@ function GraphBar() {
 
       <div className="graph-group">
         <p className="graph-group__title">Activité quotidienne</p>
-        <ResponsiveContainer  width="100%" height="100%">
-        <BarChart data={data} barGap={-40}>
-            <XAxis dataKey='name' tickLine={false}/>
-            <YAxis 
-            orientation='right' 
-            padding={{ top: 40}} 
-            axisLine={false} 
-            tickLine={false} 
-            tickCount={3}  
-            dataKey='kg' 
-            ticks={[fTick, sTick, tTick]} 
-            domain={['dataMin', 'dataMax']}
-            />
-            <Tooltip content={<CustomTooltip />}/>
-            <Legend  verticalAlign='top' align='right' iconType="cicle"/>
-            <Bar dataKey="kg" name={`Poids (kg)`} fill="#000000" maxBarSize={10} radius={[10,10,0,0]}/>
-            <Bar dataKey="kcal" name={`Calories brûlées (kCal)`} fill="#E60000" maxBarSize={10} radius={[10,10,0,0]}/>
+        <ResponsiveContainer width="99%" height="100%">
+          <BarChart data={data} barGap={10} width="100%" height="100%">
+              <XAxis dataKey='name' tickLine={false}/>
+              <YAxis 
+              orientation='right' 
+              padding={{ top: 40}} 
+              axisLine={false} 
+              tickLine={false} 
+              tickCount={3}  
+              dataKey='kg' 
+              ticks={[fTick,sTick,tTick]} 
+              domain={['dataMin', 'dataMax']}
+              />
+              <Tooltip content={<CustomTooltip />}/>
+              <Legend  verticalAlign='top' align='right' iconType="cicle"/>
+              <Bar dataKey="kg" name={`Poids (kg)`} fill="#000000" barSize={10} radius={[10,10,0,0]}/>
+              <Bar dataKey="kcal" name={`Calories brûlées (kCal)`} fill="#E60000" barSize={10} radius={[10,10,0,0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -102,4 +90,4 @@ function GraphBar() {
     )
 }
 
-export default React.memo(GraphBar)
+export default GraphBar

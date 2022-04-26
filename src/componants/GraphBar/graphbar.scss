@@ -1,12 +1,13 @@
 
 .graph-group {
-    width: 60%; 
-    height: 40%;
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    height: 15rem;
     position: relative;
-    background: #FBFBFB;
+    background: #be7878;
     border-radius: 16px;
-    padding: 30px;
-
+    
     &__title {
         position: absolute;
         top: 30px;

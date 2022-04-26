@@ -1,3 +1,11 @@
 .home{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+
+    &__dashboard-wrapper {
+        display: grid;
+        grid-template-columns: 70% 25%;
+        gap: 2rem;
+    }
 }
