@@ -1,0 +1,21 @@
+@import '../../utils/variables/variables.scss';
+
+.graphline-wrapper {
+    display: flex;
+    align-items: flex-end;
+    height: 263px;
+    width: 30%;
+    background: $third-color;
+    position: relative;
+    border-radius: 8px;
+
+    &__title {
+        position: absolute;
+        display: inline-block;
+        width: 50%;
+        top: 10px;
+        left: 10px;
+        margin: 0;
+        color: $sec-color;
+    }
+}

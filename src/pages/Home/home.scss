@@ -13,3 +13,14 @@
         justify-content: space-between;
     }
 }
+
+.graphs-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mini-graphs-wrapper {
+    display: flex;
+    justify-content: space-between;
+}

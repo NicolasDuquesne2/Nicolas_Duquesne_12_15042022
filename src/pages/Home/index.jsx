@@ -2,6 +2,7 @@ import Footer from "../../componants/Footer"
 import GraphBar from "../../componants/GraphBar"
 import Hello from "../../componants/Hello"
 import Insights from "../../componants/Insights"
+import GraphLine from "../../componants/GraphLine"
 import './home.scss'
 
 function Home() {
@@ -14,7 +15,12 @@ function Home() {
                     sentence='Félicitaions ! vous avez explosé vos objectifs hier'
                 />
                 <div className="home__dashboard-wrapper">
-                    <GraphBar />
+                    <div className="graphs-wrapper">
+                        <GraphBar />
+                        <div className="mini-graphs-wrapper">
+                            <GraphLine />
+                        </div>
+                    </div>
                     <Insights />
                 </div>
             </div>
