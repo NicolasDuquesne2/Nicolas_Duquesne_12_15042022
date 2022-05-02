@@ -58,7 +58,7 @@ function GraphBar() {
     setsTick(() => {
       const inter = 2
       const r = (tTick-fTick)/inter
-      return fTick + (inter/2)*r
+      return (fTick + (inter/2)*r)
     })
   }, [fTick, tTick])
   
@@ -69,20 +69,32 @@ function GraphBar() {
         <ResponsiveContainer width="99%" height="100%">
           <BarChart data={data} barGap={10} width="100%" height="100%">
               <XAxis dataKey='name' tickLine={false}/>
-              <YAxis 
-              orientation='right' 
-              padding={{ top: 40}} 
-              axisLine={false} 
-              tickLine={false} 
-              tickCount={3}  
-              dataKey='kg' 
-              ticks={[fTick,sTick,tTick]} 
-              domain={['dataMin', 'dataMax']}
+              <YAxis
+                yAxisId={0}
+                orientation='right' 
+                padding={{ top: 40}} 
+                axisLine={false} 
+                tickLine={false} 
+                tickCount={3}  
+                dataKey='kg' 
+                ticks={[fTick,sTick,tTick]} 
+                domain={['dataMin', 'dataMax']}
               />
-              <Tooltip content={<CustomTooltip />}/>
+              <YAxis 
+                yAxisId={1}
+                orientation='right' 
+                padding={{ top: 40}} 
+                axisLine={false}
+                tickLine={false}
+                tickCount={3}  
+                dataKey='kcal' 
+                domain={[dataMin => (0), dataMax => (370)]}
+                hide={true}
+              />
+              <Tooltip content={<CustomTooltip />} />
               <Legend  verticalAlign='top' align='right' iconType="cicle"/>
-              <Bar dataKey="kg" name={`Poids (kg)`} fill="#000000" barSize={10} radius={[10,10,0,0]}/>
-              <Bar dataKey="kcal" name={`Calories brûlées (kCal)`} fill="#E60000" barSize={10} radius={[10,10,0,0]} />
+              <Bar yAxisId={0} dataKey="kg" name={`Poids (kg)`} fill="#000000" barSize={10} radius={[10,10,0,0]}/>
+              <Bar yAxisId={1} dataKey="kcal" name={`Poids (kg)`} fill="#E60000" barSize={10} radius={[10,10,0,0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

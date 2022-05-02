@@ -1,0 +1,11 @@
+@import '../../utils/variables/variables.scss';
+
+.graphweb-wrapper {
+    display: flex;
+    align-items: flex-end;
+    height: 263px;
+    width: 30%;
+    background: $sixth-color;
+    position: relative;
+    border-radius: 8px;
+}

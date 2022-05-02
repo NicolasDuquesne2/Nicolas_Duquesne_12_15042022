@@ -3,6 +3,7 @@ import GraphBar from "../../componants/GraphBar"
 import Hello from "../../componants/Hello"
 import Insights from "../../componants/Insights"
 import GraphLine from "../../componants/GraphLine"
+import GraphWeb from "../../componants/GraphWeb"
 import './home.scss'
 
 function Home() {
@@ -19,6 +20,7 @@ function Home() {
                         <GraphBar />
                         <div className="mini-graphs-wrapper">
                             <GraphLine />
+                            <GraphWeb />
                         </div>
                     </div>
                     <Insights />
