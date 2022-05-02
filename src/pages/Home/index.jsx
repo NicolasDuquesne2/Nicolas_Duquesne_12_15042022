@@ -5,6 +5,7 @@ import Insights from "../../componants/Insights"
 import GraphLine from "../../componants/GraphLine"
 import GraphWeb from "../../componants/GraphWeb"
 import './home.scss'
+import GraphCircle from "../../componants/GraphCircle"
 
 function Home() {
     return (
@@ -21,6 +22,7 @@ function Home() {
                         <div className="mini-graphs-wrapper">
                             <GraphLine />
                             <GraphWeb />
+                            <GraphCircle />
                         </div>
                     </div>
                     <Insights />

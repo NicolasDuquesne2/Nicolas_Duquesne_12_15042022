@@ -1,5 +1,5 @@
 import React from "react"
-import { RadarChart, PolarGrid, ResponsiveContainer, PolarAngleAxis, PolarRadiusAxis, Radar, Label } from 'recharts';
+import { RadarChart, PolarGrid, ResponsiveContainer, PolarAngleAxis, Radar } from 'recharts';
 import './graphweb.scss'
 
 const datas = [
