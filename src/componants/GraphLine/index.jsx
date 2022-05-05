@@ -2,6 +2,7 @@ import React from "react"
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
 import CustomAxisTick from "../CustomAxisTick";
 import CustomCursor from "../CustomCursor";
+import CustomLineChartTooltip from "../CustomLineGraphTooltip"
 import './graphline.scss'
 
 const datas = [
@@ -76,9 +77,9 @@ function GraphLine() {
                         axisLine={false}
                         interval="preserveEnd"
                         tick={<CustomAxisTick dy={0} fill="#FFFF" textAnchor="middle"/>} minTickGap={-5}/>
-                    <Tooltip 
+                    <Tooltip
+                        content={<CustomLineChartTooltip />}
                         cursor={<Cursor />}
-                        active={false}
                     />
                     <Line type="monotone" dataKey="value" stroke="#FFFF" dot={false}/>
                 </LineChart>
