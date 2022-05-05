@@ -1,6 +1,6 @@
 import './tooltip.scss'
 
-function CustomTooltip({active, payload}) {
+function CustomBarChartTooltip({active, payload}) {
     if (active) {
         return (
             <div className="tooltip">
@@ -13,5 +13,5 @@ function CustomTooltip({active, payload}) {
     }
 }
 
-export default CustomTooltip
+export default CustomBarChartTooltip
 

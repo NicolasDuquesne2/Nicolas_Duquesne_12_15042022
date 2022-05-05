@@ -1,7 +1,7 @@
 import React from 'react'
 import {useEffect, useState} from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import CustomTooltip from '../CustomTooltip';
+import CustomBarChartTooltip from '../CustomBarChartTooltip';
 import './graphbar.scss'
 
 const data = [
@@ -91,7 +91,7 @@ function GraphBar() {
                 domain={[dataMin => (0), dataMax => (370)]}
                 hide={true}
               />
-              <Tooltip content={<CustomTooltip />} />
+              <Tooltip content={<CustomBarChartTooltip />} />
               <Legend  verticalAlign='top' align='right' iconType="cicle"/>
               <Bar yAxisId={0} dataKey="kg" name={`Poids (kg)`} fill="#000000" barSize={10} radius={[10,10,0,0]}/>
               <Bar yAxisId={1} dataKey="kcal" name={`Poids (kg)`} fill="#E60000" barSize={10} radius={[10,10,0,0]} />

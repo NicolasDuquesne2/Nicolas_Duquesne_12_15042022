@@ -57,16 +57,18 @@ const datas = [
 
 const Cursor  = props => {
     console.log(props)
-    const { x, y, width, height, stroke } = props;
-    console.log(`${x}, ${y}, ${width}, ${height}, ${stroke}`)
-    return <Rectangle fill="white" stroke="white" x={x} y={y} width={width} height={263} />;
+    const { points, width, height, stroke } = props
+    const {x, y} = points[0]
+
+    console.log(`${width}, ${height}, ${stroke}`)
+    return <Rectangle fill="#000000" opacity="0.2" x={x} y={y-5} width={width + 10 - x} height={263} radius={8}/>;
 };
 
 function GraphLine() {
     return (
         <div className="graphline-wrapper">
             <h4 className="graphline-wrapper__title">Durée moyenne des sessions</h4>
-            <ResponsiveContainer width="100%" height="60%">
+            <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={datas} >
                     <XAxis 
                         dataKey="name" 
@@ -74,7 +76,10 @@ function GraphLine() {
                         axisLine={false}
                         interval="preserveEnd"
                         tick={<CustomAxisTick dy={0} fill="#FFFF" textAnchor="middle"/>} minTickGap={-5}/>
-                    <Tooltip cursor={<Cursor />}/>
+                    <Tooltip 
+                        cursor={<Cursor />}
+                        active={false}
+                    />
                     <Line type="monotone" dataKey="value" stroke="#FFFF" dot={false}/>
                 </LineChart>
             </ResponsiveContainer>
