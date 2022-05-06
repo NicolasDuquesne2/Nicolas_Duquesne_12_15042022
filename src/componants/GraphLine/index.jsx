@@ -62,15 +62,15 @@ const Cursor  = props => {
     const {x, y} = points[0]
 
     console.log(`${width}, ${height}, ${stroke}`)
-    return <Rectangle fill="#000000" opacity="0.2" x={x} y={y-5} width={width + 10 - x} height={263} radius={8}/>;
+    return <Rectangle fill="#000000" opacity="0.2" x={x} y={y - 100} width={width + 10 - x} height={263} radius={8}/>;
 };
 
 function GraphLine() {
     return (
         <div className="graphline-wrapper">
             <h4 className="graphline-wrapper__title">Durée moyenne des sessions</h4>
-            <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={datas} >
+            <ResponsiveContainer width="100%" height="100%" >
+                <LineChart data={datas} margin={{top: 100}}>
                     <XAxis 
                         dataKey="name" 
                         tickLine={false} 
