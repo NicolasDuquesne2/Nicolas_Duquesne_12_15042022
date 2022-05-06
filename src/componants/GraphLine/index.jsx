@@ -9,7 +9,7 @@ const datas = [
 
     {
         name: "",
-        value: "45",
+        value: "40",
         unit: "min"
     },
 
@@ -81,7 +81,7 @@ function GraphLine() {
                         content={<CustomLineChartTooltip />}
                         cursor={<Cursor />}
                     />
-                    <Line type="monotone" dataKey="value" stroke="#FFFF" dot={false}/>
+                    <Line type="monotone" dataKey="value" stroke="#FFFF" dot={false} activeDot={{ stroke: 'white', strokeOpacity: 0.2, strokeWidth: 10, r: 4 }}/>
                 </LineChart>
             </ResponsiveContainer>
         </div>
