@@ -56,14 +56,7 @@ const datas = [
     },
 ]
 
-const Cursor  = props => {
-    console.log(props)
-    const { points, width, height, stroke } = props
-    const {x, y} = points[0]
 
-    console.log(`${width}, ${height}, ${stroke}`)
-    return <Rectangle fill="#000000" opacity="0.2" x={x} y={y - 100} width={width + 10 - x} height={263} radius={8}/>;
-};
 
 function GraphLine() {
     return (
@@ -79,7 +72,7 @@ function GraphLine() {
                         tick={<CustomAxisTick dy={0} fill="#FFFF" textAnchor="middle"/>} minTickGap={-5}/>
                     <Tooltip
                         content={<CustomLineChartTooltip />}
-                        cursor={<Cursor />}
+                        cursor={<CustomCursor />}
                     />
                     <Line type="monotone" dataKey="value" stroke="#FFFF" dot={false} activeDot={{ stroke: 'white', strokeOpacity: 0.2, strokeWidth: 10, r: 4 }}/>
                 </LineChart>
