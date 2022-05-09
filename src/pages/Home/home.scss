@@ -1,26 +1,22 @@
+@import '../../utils/variables/variables.scss';
+
 .home{
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 1440px;
     width: 80%;
-    margin-left: auto;
+    margin-left: auto;    
     margin-right: auto;
 
-    &__dashboard-wrapper {
-        display: grid;
-        grid-template-columns: 75% 23%;
-        justify-content: space-between;
+    &__links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-.graphs-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.mini-graphs-wrapper {
-    display: flex;
-    justify-content: space-between;
+    &__links a {
+        color: $third-color;
+        text-decoration:underline;
+    }
 }

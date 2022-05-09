@@ -1,5 +1,5 @@
 import React from "react"
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import CustomAxisTick from "../CustomAxisTick";
 import CustomCursor from "../CustomCursor";
 import CustomLineChartTooltip from "../CustomLineGraphTooltip"

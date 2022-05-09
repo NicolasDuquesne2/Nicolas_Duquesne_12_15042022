@@ -1,32 +1,38 @@
+import { Link } from "react-router-dom"
+import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
-import GraphBar from "../../componants/GraphBar"
-import Hello from "../../componants/Hello"
-import Insights from "../../componants/Insights"
-import GraphLine from "../../componants/GraphLine"
-import GraphWeb from "../../componants/GraphWeb"
 import './home.scss'
-import GraphCircle from "../../componants/GraphCircle"
 
 function Home() {
+
+    let users = []
+    let usersDatas = []
+
+    users.push(useFetch("http://localhost:3000/user/12"))
+    users.push(useFetch("http://localhost:3000/user/18"))
+
+    users.forEach((user) => {
+        if (user.error) {
+            alert('Erreur de chargement de données')
+        }
+
+        if ( ! user.isLoading) {
+            usersDatas.push(user.data)
+        }
+    })
+
     return (
         <div className="wrapper">
             <Footer />
             <div className="home">
-                <Hello 
-                    name='Thomas'
-                    sentence='Félicitaions ! vous avez explosé vos objectifs hier'
-                />
-                <div className="home__dashboard-wrapper">
-                    <div className="graphs-wrapper">
-                        <GraphBar />
-                        <div className="mini-graphs-wrapper">
-                            <GraphLine />
-                            <GraphWeb />
-                            <GraphCircle />
-                        </div>
-                    </div>
-                    <Insights />
-                </div>
+                <ul className="home__links">
+                    {usersDatas.map((userData, index) => (
+                        <Link
+                            key={`link-${index}`} 
+                            to={`/user/${userData.data.id}`} 
+                        >{`${userData.data.userInfos.firstName} ${userData.data.userInfos.lastName}`}</Link>
+                    ))}
+                </ul>
             </div>
         </div>
     )
