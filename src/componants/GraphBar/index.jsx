@@ -1,6 +1,6 @@
 import React from 'react'
-import {useEffect, useState} from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { useEffect, useState } from 'react'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import CustomBarChartTooltip from '../CustomBarChartTooltip';
 import './graphbar.scss'
 
@@ -10,9 +10,6 @@ import './graphbar.scss'
 function GraphBar(data) {
 
   const dataArray = data.data
-
-  console.log(dataArray)
-
   const [fTick, setfTick] = useState(0)
   const [sTick, setsTick] = useState(0)
   const [tTick, settTick] = useState(0)

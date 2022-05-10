@@ -33,10 +33,15 @@ function UserDashboard() {
                     />
                     <div className="dashboard__dashboard-wrapper">
                         <div className="graphs-wrapper">
-                        <GraphBar 
-                            data = {userActivity.data.data.sessions}
-                        />
-                        </div> 
+                            <GraphBar 
+                                data = {userActivity.data.data.sessions}
+                            />
+                            <div className="mini-graphs-wrapper">
+                                <GraphLine 
+                                    data = {userAvSession.data.data.sessions}
+                                />
+                            </div>
+                        </div>
                         <Insights 
                             data = {userData.data.data.keyData}
                         />

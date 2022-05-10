@@ -1,16 +1,32 @@
 import React from "react"
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import CustomAxisTick from "../CustomAxisTick";
-import CustomCursor from "../CustomCursor";
+import { useEffect, useState } from 'react'
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import CustomAxisTick from "../CustomAxisTick"
+import CustomCursor from "../CustomCursor"
 import CustomLineChartTooltip from "../CustomLineGraphTooltip"
 import './graphline.scss'
 
 function GraphLine(data) {
+
+    const dataArray = data.data
+    const [timeData, setTimeData] = useState([])
+
+    useEffect(() => {
+        //replace day index by first day french letter
+        const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+        dataArray.map((day, index) => (
+            day.day = days[index]
+        ))
+        
+        setTimeData(dataArray)
+
+    }, [dataArray])
+
     return (
         <div className="graphline-wrapper">
             <h4 className="graphline-wrapper__title">Durée moyenne des sessions</h4>
             <ResponsiveContainer width="100%" height="100%" >
-                <LineChart data={data} margin={{top: 100}}>
+                <LineChart data={timeData} margin={{top: 100}}>
                     <XAxis 
                         dataKey="day" 
                         tickLine={false} 
