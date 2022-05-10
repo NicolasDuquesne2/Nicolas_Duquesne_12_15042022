@@ -4,7 +4,6 @@ import './insights.scss'
 function Insights( {data} ) {
 
     const entries = Object.entries(data)
-    console.log(data)
     return(
         <div className="insights-wrapper">
             {entries.map((insight, index) => (

@@ -21,10 +21,8 @@ function UserDashboard() {
         alert(`Erreur de chargement des datas : ${userData.error}`)
     }
 
-    if(!userData.isLoading || !userActivity.isLoading || !userAvSession.isLoading || !userPerformance.isLoading) {
-        console.log(userData)
+    if(!userData.isLoading && !userActivity.isLoading && !userAvSession.isLoading && !userPerformance.isLoading) {
         
-
         return (
             <div className="wrapper">
                 <Footer />
@@ -34,7 +32,11 @@ function UserDashboard() {
                         sentence='Félicitations ! vous avez explosé vos objectifs hier'
                     />
                     <div className="dashboard__dashboard-wrapper">
-                       
+                        <div className="graphs-wrapper">
+                        <GraphBar 
+                            data = {userActivity.data.data.sessions}
+                        />
+                        </div> 
                         <Insights 
                             data = {userData.data.data.keyData}
                         />
@@ -50,17 +52,17 @@ export default UserDashboard
 
 
 /* <div className="graphs-wrapper">
-                        <GraphBar 
-                            data = {[userActivity.data.data.sessions]}
-                        />
-                        <div className="mini-graphs-wrapper">
-                            <GraphLine 
-                                data = {[userAvSession.data.data.sessions]}
-                            />
-                            <GraphWeb 
-                                data = {userPerformance.data.data}
-                            />
-                            <GraphCircle />
-                        </div>
-                    </div> 
+        <GraphBar 
+            data = {[userActivity.data.data.sessions]}
+        />
+        <div className="mini-graphs-wrapper">
+            <GraphLine 
+                data = {[userAvSession.data.data.sessions]}
+            />
+            <GraphWeb 
+                data = {userPerformance.data.data}
+            />
+            <GraphCircle />
+        </div>
+    </div> 
  */
