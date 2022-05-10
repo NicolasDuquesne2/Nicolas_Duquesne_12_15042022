@@ -4,48 +4,10 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } fro
 import CustomBarChartTooltip from '../CustomBarChartTooltip';
 import './graphbar.scss'
 
-const data = [
-  {
-    name: '1',
-    kg: 69.2,
-    kcal: 250,
-  },
-  {
-    name: '2',
-    kg: 69.3,
-    kcal: 300,
-  },
-  {
-    name: '3',
-    kg: 70.1,
-    kcal: 356,
-  },
-  {
-    name: '4',
-    kg: 69.9,
-    kcal: 150,
-  },
-  {
-    name: '5',
-    kg: 69.8,
-    kcal: 170,
-  },
-  {
-    name: '6',
-    kg: 70.5,
-    kcal: 180,
-  },
-  {
-    name: '7',
-    kg: 69.2,
-    kcal: 120,
-  },
-];
 
 
 
-
-function GraphBar() {
+function GraphBar(data) {
 
   const [fTick, setfTick] = useState(0)
   const [sTick, setsTick] = useState(0)
@@ -60,7 +22,7 @@ function GraphBar() {
       const r = (tTick-fTick)/inter
       return (fTick + (inter/2)*r)
     })
-  }, [fTick, tTick])
+  }, [data, fTick, tTick])
   
     return (
 
@@ -68,7 +30,7 @@ function GraphBar() {
         <p className="graph-group__title">Activité quotidienne</p>
         <ResponsiveContainer width="99%" height="100%">
           <BarChart data={data} barGap={10} width="100%" height="100%">
-              <XAxis dataKey='name' tickLine={false}/>
+              <XAxis dataKey='day' tickLine={false}/>
               <YAxis
                 yAxisId={0}
                 orientation='right' 
@@ -76,7 +38,7 @@ function GraphBar() {
                 axisLine={false} 
                 tickLine={false} 
                 tickCount={3}  
-                dataKey='kg' 
+                dataKey='kilogram' 
                 ticks={[fTick,sTick,tTick]} 
                 domain={['dataMin', 'dataMax']}
               />
@@ -87,7 +49,7 @@ function GraphBar() {
                 axisLine={false}
                 tickLine={false}
                 tickCount={3}  
-                dataKey='kcal' 
+                dataKey='calories' 
                 domain={[dataMin => (0), dataMax => (370)]}
                 hide={true}
               />

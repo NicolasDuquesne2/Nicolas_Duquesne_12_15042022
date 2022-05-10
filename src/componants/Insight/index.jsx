@@ -8,23 +8,33 @@ function Insight({name, stats}) {
 
     let image = null
     let color = ''
+    let unit = ''
+    let frName = ''
 
     switch(name) {
-        case 'Calories':
+        case 'calorieCount':
             image = energy
             color = '--red'
+            unit = 'kCal'
+            frName = 'Calories'
             break
-        case 'Proteines':
+        case 'proteinCount':
             image = chicken
             color = '--blue'
+            unit = 'g'
+            frName = 'Proteines'
             break
-        case 'Glucides':
+        case 'carbohydrateCount':
             image = apple
             color = '--yellow'
+            unit = 'g'
+            frName = 'Glucides'
             break
-        case 'Lipides':
+        case 'lipidCount':
             image = cheeseburger
             color = '--red'
+            unit = 'g'
+            frName = 'Lipides'
             break
         default:
     }
@@ -35,8 +45,8 @@ function Insight({name, stats}) {
                 <img src={image} className="icon" alt={name} ></img>
             </div>
             <div className="insight-wrapper__text-wrapper">
-                <h4>{stats}</h4>
-                <p>{name}</p>
+                <h4>{`${stats}${unit}`}</h4>
+                <p>{frName}</p>
             </div>
         </div>
     )

@@ -1,42 +1,17 @@
 import Insight from "../Insight"
 import './insights.scss'
 
-const datas = [
-    {
-        name: 'Calories',
-        value: '1,930',
-        unit: 'kCal'
-    },
+function Insights( {data} ) {
 
-    {
-        name: 'Proteines',
-        value: '155',
-        unit: 'g'
-    },
-
-    {
-        name: 'Glucides',
-        value: '290',
-        unit: 'g'
-    },
-
-    {
-        name: 'Lipides',
-        value: '50',
-        unit: 'g'
-    },
-]
-
-
-
-function Insights() {
+    const entries = Object.entries(data)
+    console.log(data)
     return(
         <div className="insights-wrapper">
-            {datas.map((insight, index) => (
+            {entries.map((insight, index) => (
                 <Insight 
-                    key={`${insight.name}-${index}`}
-                    name ={insight.name}
-                    stats={`${insight.value}${insight.unit}`}
+                    key={`${insight[0]}-${index}`}
+                    name ={insight[0]}
+                    stats={`${insight[1]}`}
                 />
             ))}
         </div>

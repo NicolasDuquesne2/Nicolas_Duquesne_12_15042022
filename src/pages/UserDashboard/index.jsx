@@ -11,35 +11,56 @@ import GraphCircle from "../../componants/GraphCircle"
 
 function UserDashboard() {
     const { id } = useParams()
-    const { data, isLoading, error } = useFetch(`http://localhost:3000/user/${id}`)
 
-    if(error) {
-        alert(`Erreur de chargement des datas : ${error}`)
+    const userData = useFetch(`http://localhost:3000/user/${id}`)
+    const userActivity = useFetch(`http://localhost:3000/user/${id}/activity`)
+    const userAvSession = useFetch(`http://localhost:3000/user/${id}/average-sessions`)
+    const userPerformance = useFetch(`http://localhost:3000/user/${id}/performance`)
+
+    if(userData.error || userActivity.error || userAvSession.error || userPerformance.error) {
+        alert(`Erreur de chargement des datas : ${userData.error}`)
     }
 
-    return (
-        <div className="wrapper">
-            <Footer />
-            <div className="dashboard">
-                <Hello 
-                    name='Thomas'
-                    sentence='Félicitaions ! vous avez explosé vos objectifs hier'
-                />
-                <div className="dashboard__dashboard-wrapper">
-                    <div className="graphs-wrapper">
-                        <GraphBar />
-                        <div className="mini-graphs-wrapper">
-                            <GraphLine />
-                            <GraphWeb />
-                            <GraphCircle />
-                        </div>
+    if(!userData.isLoading || !userActivity.isLoading || !userAvSession.isLoading || !userPerformance.isLoading) {
+        console.log(userData)
+        
+
+        return (
+            <div className="wrapper">
+                <Footer />
+                <div className="dashboard">
+                    <Hello 
+                        name = {userData.data.data.userInfos.firstName}
+                        sentence='Félicitations ! vous avez explosé vos objectifs hier'
+                    />
+                    <div className="dashboard__dashboard-wrapper">
+                       
+                        <Insights 
+                            data = {userData.data.data.keyData}
+                        />
                     </div>
-                    <Insights />
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 
 export default UserDashboard
+
+
+/* <div className="graphs-wrapper">
+                        <GraphBar 
+                            data = {[userActivity.data.data.sessions]}
+                        />
+                        <div className="mini-graphs-wrapper">
+                            <GraphLine 
+                                data = {[userAvSession.data.data.sessions]}
+                            />
+                            <GraphWeb 
+                                data = {userPerformance.data.data}
+                            />
+                            <GraphCircle />
+                        </div>
+                    </div> 
+ */
