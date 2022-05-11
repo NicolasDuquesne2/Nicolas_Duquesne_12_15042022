@@ -25,6 +25,7 @@ function UserDashboard() {
     }
 
     if(!userData.isLoading && !userActivity.isLoading && !userAvSession.isLoading && !userPerformance.isLoading) {
+        console.log(userPerformance.data.data)
         return (
             <div className="wrapper">
                 <Footer />

@@ -6,22 +6,23 @@ import './graphweb.scss'
 
 function GraphWeb(data) {
 
-    const dataArray = data.data.data
-    const typesObject = data.data.kind
     const [perfData, setPerfData] = useState([])
-    
+
     useEffect(() => {
         //replace index by kind values in the data array and returns only the data array within dataArray
+        const dataArray = data.data.data
+        const typesObject = data.data.kind
+        const intermArray = [...dataArray]
 
-        dataArray.map((type) => {
+        intermArray.map((type) => {
             const id = type.kind
             type.kind = typesObject[id]
             return type
          }
         )
 
-        setPerfData(dataArray)
-    }, [dataArray, typesObject])
+        setPerfData(intermArray)
+    }, [data])
 
 
     return (
