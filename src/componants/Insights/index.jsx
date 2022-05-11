@@ -2,7 +2,6 @@ import Insight from "../Insight"
 import './insights.scss'
 
 function Insights( {data} ) {
-
     const entries = Object.entries(data)
     return(
         <div className="insights-wrapper">

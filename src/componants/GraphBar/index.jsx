@@ -8,7 +8,7 @@ import './graphbar.scss'
 
 
 function GraphBar(data) {
-
+  
   const dataArray = data.data
   const [fTick, setfTick] = useState(0)
   const [sTick, setsTick] = useState(0)

@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
@@ -10,6 +11,7 @@ import './dashboard.scss'
 import GraphCircle from "../../componants/GraphCircle"
 
 function UserDashboard() {
+
     const { id } = useParams()
 
     const userData = useFetch(`http://localhost:3000/user/${id}`)
@@ -17,12 +19,12 @@ function UserDashboard() {
     const userAvSession = useFetch(`http://localhost:3000/user/${id}/average-sessions`)
     const userPerformance = useFetch(`http://localhost:3000/user/${id}/performance`)
 
+
     if(userData.error || userActivity.error || userAvSession.error || userPerformance.error) {
         alert(`Erreur de chargement des datas : ${userData.error}`)
     }
 
     if(!userData.isLoading && !userActivity.isLoading && !userAvSession.isLoading && !userPerformance.isLoading) {
-        
         return (
             <div className="wrapper">
                 <Footer />
@@ -39,6 +41,9 @@ function UserDashboard() {
                             <div className="mini-graphs-wrapper">
                                 <GraphLine 
                                     data = {userAvSession.data.data.sessions}
+                                />
+                                <GraphWeb 
+                                    data = {userPerformance.data.data}
                                 />
                             </div>
                         </div>
