@@ -19,13 +19,12 @@ function UserDashboard() {
     const userAvSession = useFetch(`http://localhost:3000/user/${id}/average-sessions`)
     const userPerformance = useFetch(`http://localhost:3000/user/${id}/performance`)
 
-
+    
     if(userData.error || userActivity.error || userAvSession.error || userPerformance.error) {
         alert(`Erreur de chargement des datas : ${userData.error}`)
     }
 
     if(!userData.isLoading && !userActivity.isLoading && !userAvSession.isLoading && !userPerformance.isLoading) {
-        console.log(userPerformance.data.data)
         return (
             <div className="wrapper">
                 <Footer />
@@ -46,11 +45,12 @@ function UserDashboard() {
                                 <GraphWeb 
                                     data = {userPerformance.data.data}
                                 />
+                                <GraphCircle 
+                                    rating = {userData.data.data.todayScore}
+                                />
                             </div>
                         </div>
-                        <Insights 
-                            data = {userData.data.data.keyData}
-                        />
+                        
                     </div>
                 </div>
             </div>
@@ -76,4 +76,8 @@ export default UserDashboard
             <GraphCircle />
         </div>
     </div> 
+
+    <Insights 
+                            rate = {userData.data.data.keyData}
+                        />
  */
