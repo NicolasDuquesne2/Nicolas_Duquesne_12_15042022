@@ -1,4 +1,3 @@
-import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
@@ -46,7 +45,7 @@ function UserDashboard() {
                                     data = {userPerformance.data.data}
                                 />
                                 <GraphCircle 
-                                    rating = {userData.data.data.todayScore}
+                                    rating = {userData.data.data}
                                 />
                             </div>
                         </div>

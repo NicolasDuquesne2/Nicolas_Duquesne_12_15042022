@@ -1,16 +1,17 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 import { PieChart, Pie, ResponsiveContainer, Cell, Label} from "recharts"
 import CustomLabel from "../CustomLabel";
 import './graphcircle.scss'
 
 
 function GraphCircle(rating) {
-
-    const [alpha, setAlpha] = useState([])
+    
+    const [scoreData, setScoreData] = useState([])
 
     useEffect(() => {
-        const rateByHundred = (rating.rating*100)
+
+        let rateByHundred = null
+        rating.rating.hasOwnProperty('score') ? rateByHundred = (rating.rating.score*100) : rateByHundred = (rating.rating.todayScore*100)
         const left = (100-rateByHundred)
         const data = [
     
@@ -26,21 +27,15 @@ function GraphCircle(rating) {
                 color: "#FF0101"
             },
         ]
-        //console.log(data)
-        setAlpha(data)
-    }, [rating])
+        setScoreData(data)
+    }, [])
 
-    return (
-        <div></div>
-    )
-
-    /*
     return (
         <div className="graphCircle-wrapper">
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart width={730} height={250}>
                     <Pie 
-                        data={score} 
+                        data={scoreData} 
                         dataKey="value"
                         nameKey="name" 
                         cx="50%" 
@@ -53,14 +48,14 @@ function GraphCircle(rating) {
                         endAngle={600}
                         cornerRadius={40}
                     >
-                        {score.map((entry, index) => (
+                        {scoreData.map((entry, index) => (
                             <Cell 
                                 key={`Cell-${index}`} 
                                 fill={entry.color}
                             />
 
                         ))}
-                     <Label value={score[1].name} position="outside" offset={10} fontSize="15" fontWeight={500}/>
+                     <Label value="Score" position="outside" offset={10} fontSize="15" fontWeight={500}/>
                      <Label
                         position="center"
                         content = {<CustomLabel 
@@ -68,7 +63,7 @@ function GraphCircle(rating) {
                                             {
 
                                                 span1: {
-                                                    value: `${score[1].value}%`,
+                                                    value: `${scoreData[0].value}%`,
                                                     fontWeight: 500,
                                                     fontSize: "26px"
                                                 },
@@ -87,13 +82,12 @@ function GraphCircle(rating) {
                                             }
                                         }     
                                   />}
-                    />
+                        />
                     </Pie>
                 </PieChart>
             </ResponsiveContainer>
         </div>
     )
-    */
 }
 
 export default GraphCircle
