@@ -12,7 +12,7 @@ function GraphWeb(data) {
         const dataArray = data.data.data
         const typesObject = data.data.kind
         const intermArray = [...dataArray]
-        const frenchKindLoc = ["Cardio", "Energie", "Endurence", "Force", "Vitesse", "Intensité"]
+        const frenchKindLoc = ["Intensité", "Vitesse", "Force", "Endurence", "Energie", "Cardio"]
 
         //set french location kinds in typesObject
         frenchKindLoc.forEach((kind, index) => {
