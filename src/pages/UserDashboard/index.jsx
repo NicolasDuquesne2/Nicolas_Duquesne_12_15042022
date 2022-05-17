@@ -8,6 +8,7 @@ import GraphLine from "../../componants/GraphLine"
 import GraphWeb from "../../componants/GraphWeb"
 import './dashboard.scss'
 import GraphCircle from "../../componants/GraphCircle"
+import { useReducer } from 'react'
 
 function UserDashboard() {
 
@@ -24,6 +25,7 @@ function UserDashboard() {
     }
 
     if(!userData.isLoading && !userActivity.isLoading && !userAvSession.isLoading && !userPerformance.isLoading) {
+        console.log(userData)
         return (
             <div className="wrapper">
                 <Footer />
@@ -49,7 +51,7 @@ function UserDashboard() {
                                 />
                             </div>
                         </div>
-                        
+                        < Insights data = {userData.data.data.keyData}/>
                     </div>
                 </div>
             </div>

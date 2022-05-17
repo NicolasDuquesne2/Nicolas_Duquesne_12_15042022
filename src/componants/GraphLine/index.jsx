@@ -20,7 +20,6 @@ function GraphLine(data) {
         ))
 
         dataArray.reverse()
-        console.log(dataArray)
         dataArray.push({day: '', sessionLength: 0})
         dataArray.reverse()
         setTimeData(dataArray)
