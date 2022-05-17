@@ -55,7 +55,7 @@ function GraphCircle(rating) {
                             />
 
                         ))}
-                     <Label value="Score" position="outside" offset={10} fontSize="15" fontWeight={500}/>
+                     <Label value={scoreData[1]?.name} position="outside" offset={10} fontSize="15" fontWeight={500}/>
                      <Label
                         position="center"
                         content = {<CustomLabel 
@@ -63,7 +63,7 @@ function GraphCircle(rating) {
                                             {
 
                                                 span1: {
-                                                    value: `${scoreData[0].value}%`,
+                                                    value: `${scoreData[0]?.value}%`,
                                                     fontWeight: 500,
                                                     fontSize: "26px"
                                                 },

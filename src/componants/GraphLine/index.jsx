@@ -12,32 +12,36 @@ function GraphLine(data) {
     const [timeData, setTimeData] = useState([])
 
     useEffect(() => {
+
         //replace day index by first day french letter
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
         dataArray.map((day, index) => (
             day.day = days[index]
         ))
-        
-        setTimeData(dataArray)
 
-    }, [dataArray])
+        dataArray.reverse()
+        console.log(dataArray)
+        dataArray.push({day: '', sessionLength: 0})
+        dataArray.reverse()
+        setTimeData(dataArray)
+    }, [])
 
     return (
         <div className="graphline-wrapper">
             <h4 className="graphline-wrapper__title">Durée moyenne des sessions</h4>
             <ResponsiveContainer width="100%" height="100%" >
-                <LineChart data={timeData} margin={{top: 100}}>
+                <LineChart data={timeData} margin={{top: 100, bottom: 15}}>
                     <XAxis 
                         dataKey="day" 
                         tickLine={false} 
                         axisLine={false}
                         interval="preserveEnd"
-                        tick={<CustomAxisTick dy={0} fill="#FFFF" textAnchor="middle"/>} minTickGap={-5}/>
+                        tick={<CustomAxisTick dy={15} fill="#FFFF" textAnchor="middle"/>} minTickGap={-5}/>
                     <Tooltip
                         content={<CustomLineChartTooltip />}
                         cursor={<CustomCursor />}
                     />
-                    <Line type="monotone" dataKey="sessionLength" stroke="#FFFF" dot={false} activeDot={{ stroke: 'white', strokeOpacity: 0.2, strokeWidth: 10, r: 4 }}/>
+                    <Line type="monotone" dataKey="sessionLength" stroke="#FFFF" strokeWidth={2} dot={false} activeDot={{ stroke: 'white', strokeOpacity: 0.2, strokeWidth: 10, r: 4 }}/>
                 </LineChart>
             </ResponsiveContainer>
         </div>

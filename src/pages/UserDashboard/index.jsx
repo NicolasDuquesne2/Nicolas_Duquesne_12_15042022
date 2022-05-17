@@ -61,22 +61,3 @@ function UserDashboard() {
 export default UserDashboard
 
 
-/* <div className="graphs-wrapper">
-        <GraphBar 
-            data = {[userActivity.data.data.sessions]}
-        />
-        <div className="mini-graphs-wrapper">
-            <GraphLine 
-                data = {[userAvSession.data.data.sessions]}
-            />
-            <GraphWeb 
-                data = {userPerformance.data.data}
-            />
-            <GraphCircle />
-        </div>
-    </div> 
-
-    <Insights 
-                            rate = {userData.data.data.keyData}
-                        />
- */

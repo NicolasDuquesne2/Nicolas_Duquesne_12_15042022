@@ -20,12 +20,9 @@ function GraphWeb(data) {
         })
 
         //replace index in the dataArray by kind from the typesObject
-
         intermArray.map((elmnt) => {
             const id = elmnt.kind
-            if (!isNaN(Number(id))) {
-                elmnt.kind = typesObject[id]
-            } 
+            elmnt.kind = typesObject[id]
             return elmnt
         }
         )

@@ -23,7 +23,7 @@ function GraphBar(data) {
       const r = (tTick-fTick)/inter
       return (fTick + (inter/2)*r)
     })
-  }, [dataArray, fTick, tTick])
+  }, [fTick, tTick])
   
     return (
 

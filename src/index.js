@@ -8,14 +8,12 @@ import Header from './componants/Header';
 const root = createRoot(document.getElementById('root')) 
 
 root.render(
-  <React.StrictMode>
-    <Router >
-      <Header />
-      <Routes >
-        <Route path="/" element={ <Home />} />
-        <Route path="/user/:id" element={ <UserDashboard />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>,
+  <Router >
+    <Header />
+    <Routes >
+      <Route exact path="/" element={ <Home />} />
+      <Route path="/user/:id" element={ <UserDashboard />} />
+    </Routes>
+  </Router>
 );
 
