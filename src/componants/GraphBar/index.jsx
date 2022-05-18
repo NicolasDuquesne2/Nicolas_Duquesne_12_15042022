@@ -56,7 +56,7 @@ function GraphBar(data) {
                 hide={true}
               />
               <Tooltip content={<CustomBarChartTooltip />} />
-              <Legend content={<CustomLegende />}/>
+              <Legend verticalAlign="top" content={<CustomLegende />}/>
               <Bar yAxisId={0} dataKey="kilogram" name={`Poids (kg)`} fill="#000000" barSize={10} radius={[10,10,0,0]}/>
               <Bar yAxisId={1} dataKey="calories" name={`Calories brûlées (kCal)`} fill="#E60000" barSize={10} radius={[10,10,0,0]} />
           </BarChart>
