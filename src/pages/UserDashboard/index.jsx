@@ -25,9 +25,25 @@ function UserDashboard() {
 
     const { id } = useParams()
 
+    /**
+     * userData
+     * @type {Object}
+     */
     const userData = useFetch(`http://localhost:3000/user/${id}`)
+    /**
+     * userActivity
+     * @type {Object}
+     */
     const userActivity = useFetch(`http://localhost:3000/user/${id}/activity`)
+    /**
+     * userAvSession
+     * @type {Object}
+     */
     const userAvSession = useFetch(`http://localhost:3000/user/${id}/average-sessions`)
+    /**
+     * userPerformance
+     * @type {Object}
+     */
     const userPerformance = useFetch(`http://localhost:3000/user/${id}/performance`)
 
     

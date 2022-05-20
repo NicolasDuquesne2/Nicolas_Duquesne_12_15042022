@@ -1,5 +1,6 @@
 //@ts-check
 
+import React from 'react'
 import './hello.scss'
 
 
@@ -11,7 +12,10 @@ import './hello.scss'
 
 /**
  * Hello renders the user dashbaord header
- * @returns {Object}
+ * @param {Object} props
+ * @param {String} props.name
+ * @param {String} props.sentence
+ * @returns {React.ReactComponentElement}
  */
 function Hello({name, sentence}) {
     return (

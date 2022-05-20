@@ -1,5 +1,6 @@
 //@ts-check
 
+import React from "react"
 import { Rectangle } from "recharts"
 
 /**
@@ -10,7 +11,10 @@ import { Rectangle } from "recharts"
 
 /**
  * CustomCursor returns a custom cursor for Recharts
- * @returns {Object}
+ * @param {Object} props
+ * @param {Array} props.points
+ * @param {number} props.width
+ * @returns {React.ReactComponentElement}
  */
 
 function CustomCursor({points, width}) {

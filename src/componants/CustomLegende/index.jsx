@@ -10,7 +10,8 @@ import './customlegende.scss'
 
 /**
  * CustomLegende returns a custom legende for Recharts
- * @returns {Object}
+ * @param {Object} payload
+ * @returns {React.ReactComponentElement}
  */
 function CustomLegende(payload) {
 

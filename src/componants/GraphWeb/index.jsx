@@ -13,7 +13,8 @@ import './graphweb.scss'
 
 /**
  * GraphWeb renders the radar chart with Recharts
- * @returns {Object}
+ * @param {Object} data
+ * @returns {React.ReactComponentElement}
  */
 function GraphWeb(data) {
 

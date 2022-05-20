@@ -17,7 +17,8 @@ import './graphbar.scss'
 
 /**
  * GraphBar renders the graph bar with Recharts
- * @returns {Object}
+ * @param {Object} data
+ * @returns {React.ReactElement} GraphBar
  */
 function GraphBar(data) {
   
@@ -66,7 +67,7 @@ function GraphBar(data) {
                 domain={[dataMin => (0), dataMax => (Math.max.apply(null, dataArray.map(item => item.calories)) + 10)]}
                 hide={true}
               />
-              <Tooltip content={<CustomBarChartTooltip />} />
+              <Tooltip content={<CustomBarChartTooltip active payload />} />
               <Legend verticalAlign="top" content={<CustomLegende />}/>
               <Bar yAxisId={0} dataKey="kilogram" name={`Poids (kg)`} fill="#000000" barSize={10} radius={[10,10,0,0]}/>
               <Bar yAxisId={1} dataKey="calories" name={`Calories brûlées (kCal)`} fill="#E60000" barSize={10} radius={[10,10,0,0]} />

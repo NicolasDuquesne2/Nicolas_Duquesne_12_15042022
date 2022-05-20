@@ -12,7 +12,10 @@ import React from "react"
 
 /**
  * CustomLabel returns a custom label for Recharts
- * @returns {Object}
+ * @param {Object} props
+ * @param {Object} props.viewBox
+ * @param {Object} props.custom
+ * @returns {React.ReactComponentElement}
  */
 function CustomLabel({viewBox, custom}) {
 

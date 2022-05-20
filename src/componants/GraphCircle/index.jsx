@@ -13,7 +13,8 @@ import './graphcircle.scss'
 
 /**
  * GraphCircle renders the pie chart with Recharts
- * @returns {Object}
+ * @param {Object} rating
+ * @returns {React.ReactComponentElement}
  */
 function GraphCircle(rating) {
     
@@ -69,7 +70,8 @@ function GraphCircle(rating) {
                      <Label value={scoreData[1]?.name} position="outside" offset={10} fontSize="15" fontWeight={500}/>
                      <Label
                         position="center"
-                        content = {<CustomLabel 
+                        content = {<CustomLabel
+                                        viewBox
                                         custom={
                                             {
 

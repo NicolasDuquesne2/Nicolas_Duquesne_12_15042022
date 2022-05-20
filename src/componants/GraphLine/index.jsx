@@ -16,7 +16,8 @@ import './graphline.scss'
 
 /**
  * GraphLine renders the line chart with Recharts
- * @returns {Object}
+ * @param {Object} data
+ * @returns {React.ReactComponentElement}
  */
 function GraphLine(data) {
 
@@ -47,10 +48,10 @@ function GraphLine(data) {
                         tickLine={false} 
                         axisLine={false}
                         interval="preserveEnd"
-                        tick={<CustomAxisTick dy={15} fill="#FFFF" textAnchor="middle"/>} minTickGap={-5}/>
+                        tick={<CustomAxisTick dy={15} fill="#FFFF" textAnchor="middle" x y />} minTickGap={-5}/>
                     <Tooltip
-                        content={<CustomLineChartTooltip />}
-                        cursor={<CustomCursor />}
+                        content={<CustomLineChartTooltip active payload />}
+                        cursor={<CustomCursor points width />}
                     />
                     <Line type="monotone" dataKey="sessionLength" stroke="#FFFF" strokeWidth={2} dot={false} activeDot={{ stroke: 'white', strokeOpacity: 0.2, strokeWidth: 10, r: 4 }}/>
                 </LineChart>

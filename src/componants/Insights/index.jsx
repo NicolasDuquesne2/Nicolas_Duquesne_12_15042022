@@ -1,5 +1,6 @@
 //@ts-check
 
+import React from "react"
 import Insight from "../Insight"
 import './insights.scss'
 
@@ -12,7 +13,9 @@ import './insights.scss'
 
 /**
  * Insights renders all insights on the user dashboard
- * @returns {Object}
+ * @param {Object} props
+ * @param {Object} props.data
+ * @returns {React.ReactComponentElement}
  */
 function Insights( {data} ) {
     const entries = Object.entries(data)

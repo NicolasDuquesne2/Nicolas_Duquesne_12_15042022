@@ -1,6 +1,8 @@
 
 //@ts-check
 
+import React from "react"
+
 /**
  * 
  * @module CustomAxisTick
@@ -9,7 +11,14 @@
 
 /**
  * CustomAxisTick returns a custom axis tick for Recharts
- * @returns {Object}
+ * @param {Object} props
+ * @param {number} props.x
+ * @param {number} props.y
+ * @param {number} props.dy
+ * @param {string} props.fill
+ * @param {string} props.textAnchor
+ * @param {Object} props.payload
+ * @returns {React.ReactComponentElement}
  */
 function CustomAxisTick({x, y, dy, fill, textAnchor, payload}) {
     return (

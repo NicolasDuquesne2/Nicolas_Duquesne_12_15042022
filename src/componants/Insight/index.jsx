@@ -5,6 +5,7 @@ import chicken from '../../assets/iconchicken.svg'
 import apple from '../../assets/iconapple.svg'
 import cheeseburger from '../../assets/iconcheeseburger.svg'
 import './insight.scss'
+import React from 'react'
 
 
 /**
@@ -15,7 +16,10 @@ import './insight.scss'
 
 /**
  * Insight renders an insight on the user dashboard
- * @returns {Object}
+ * @param {Object} props
+ * @param {String} props.name
+ * @param {String} props.stats
+ * @returns {React.ReactComponentElement}
  */
 function Insight({name, stats}) {
 

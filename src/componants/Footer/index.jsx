@@ -1,5 +1,6 @@
 //@ts-check
 
+import React from 'react'
 import { Link } from 'react-router-dom'
 import iconcycle from '../../assets/iconcycle.svg'
 import iconmuscle from '../../assets/iconmuscle.svg'
@@ -16,7 +17,7 @@ import './footer.scss'
 
 /**
  * Footer renders the footer application
- * @returns {Object}
+ * @returns {React.ReactComponentElement}
  */
 function Footer() {
     return(

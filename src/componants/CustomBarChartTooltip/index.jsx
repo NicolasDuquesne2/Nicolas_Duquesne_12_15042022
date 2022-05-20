@@ -10,9 +10,11 @@ import './tooltip.scss'
 
 /**
  * CustomBarChartTooltip returns a custom bar chart tooltip for Recharts
- * @returns {Object}
+ * @param {Object} props
+ * @param {boolean} props.active
+ * @param {Object} props.payload
+ * @returns {React.ReactComponentElement}
  */
-
 function CustomBarChartTooltip({active, payload}) {
     if (active) {
         return (
