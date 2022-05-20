@@ -3,6 +3,17 @@ import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
 import './home.scss'
 
+/**
+ * 
+ * @module Home
+ */
+
+
+/**
+ * Home function renders Home page
+ * @returns {void}
+ */
+
 function Home() {
 
 

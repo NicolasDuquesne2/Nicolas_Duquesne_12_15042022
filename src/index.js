@@ -5,6 +5,17 @@ import './index.scss'
 import UserDashboard from './pages/UserDashboard'
 import Home from './pages/Home';
 import Header from './componants/Header';
+
+
+/**
+ * @file index.js is the router for this application
+ * @author Nicolas Duquesne
+ */
+
+/**
+ * Root
+ * @type {object}
+ */
 const root = createRoot(document.getElementById('root')) 
 
 root.render(
