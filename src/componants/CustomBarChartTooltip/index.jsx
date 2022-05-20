@@ -1,4 +1,17 @@
+//@ts-check
+
 import './tooltip.scss'
+
+/**
+ * 
+ * @module CustomBarChartTooltip
+ */
+
+
+/**
+ * CustomBarChartTooltip returns a custom bar chart tooltip for Recharts
+ * @returns {Object}
+ */
 
 function CustomBarChartTooltip({active, payload}) {
     if (active) {

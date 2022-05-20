@@ -1,7 +1,20 @@
+//@ts-check
+
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
 import './header.scss'
 
+
+/**
+ * 
+ * @module Header
+ */
+
+
+/**
+ * Header renders the application header
+ * @returns {Object}
+ */
 function Header() {
     return (
         <div className="header">

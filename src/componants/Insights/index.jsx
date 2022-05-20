@@ -1,6 +1,19 @@
+//@ts-check
+
 import Insight from "../Insight"
 import './insights.scss'
 
+
+/**
+ * 
+ * @module Insights
+ */
+
+
+/**
+ * Insights renders all insights on the user dashboard
+ * @returns {Object}
+ */
 function Insights( {data} ) {
     const entries = Object.entries(data)
     return(

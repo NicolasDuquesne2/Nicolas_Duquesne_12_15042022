@@ -1,3 +1,5 @@
+//@ts-check
+
 import React from "react"
 import { useEffect, useState } from 'react'
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
@@ -6,6 +8,16 @@ import CustomCursor from "../CustomCursor"
 import CustomLineChartTooltip from "../CustomLineGraphTooltip"
 import './graphline.scss'
 
+/**
+ * 
+ * @module GraphLine
+ */
+
+
+/**
+ * GraphLine renders the line chart with Recharts
+ * @returns {Object}
+ */
 function GraphLine(data) {
 
     const dataArray = data.data

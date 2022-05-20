@@ -1,5 +1,17 @@
+//@ts-check
+
 import './customlegende.scss'
 
+/**
+ * 
+ * @module CustomLegende
+ */
+
+
+/**
+ * CustomLegende returns a custom legende for Recharts
+ * @returns {Object}
+ */
 function CustomLegende(payload) {
 
     const payloadArr = payload.payload

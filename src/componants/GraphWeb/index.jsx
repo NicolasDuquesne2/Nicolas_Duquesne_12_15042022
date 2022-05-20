@@ -1,9 +1,20 @@
+//@ts-check
+
 import React from "react"
 import { useEffect, useState } from "react";
 import { RadarChart, PolarGrid, ResponsiveContainer, PolarAngleAxis, Radar } from 'recharts';
 import './graphweb.scss'
 
+/**
+ * 
+ * @module GraphWeb
+ */
 
+
+/**
+ * GraphWeb renders the radar chart with Recharts
+ * @returns {Object}
+ */
 function GraphWeb(data) {
 
     const [perfData, setPerfData] = useState([])

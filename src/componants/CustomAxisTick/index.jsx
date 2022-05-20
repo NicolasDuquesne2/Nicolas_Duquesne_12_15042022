@@ -1,4 +1,16 @@
 
+//@ts-check
+
+/**
+ * 
+ * @module CustomAxisTick
+ */
+
+
+/**
+ * CustomAxisTick returns a custom axis tick for Recharts
+ * @returns {Object}
+ */
 function CustomAxisTick({x, y, dy, fill, textAnchor, payload}) {
     return (
         <g transform={`translate(${x - 15},${y})`}>

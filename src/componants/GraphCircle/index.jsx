@@ -1,9 +1,20 @@
+//@ts-check
+
 import React, { useEffect, useState } from "react"
 import { PieChart, Pie, ResponsiveContainer, Cell, Label} from "recharts"
 import CustomLabel from "../CustomLabel";
 import './graphcircle.scss'
 
+/**
+ * 
+ * @module GraphCircle
+ */
 
+
+/**
+ * GraphCircle renders the pie chart with Recharts
+ * @returns {Object}
+ */
 function GraphCircle(rating) {
     
     const [scoreData, setScoreData] = useState([])

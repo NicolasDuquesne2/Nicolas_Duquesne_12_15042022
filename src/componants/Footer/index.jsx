@@ -1,3 +1,5 @@
+//@ts-check
+
 import { Link } from 'react-router-dom'
 import iconcycle from '../../assets/iconcycle.svg'
 import iconmuscle from '../../assets/iconmuscle.svg'
@@ -5,6 +7,17 @@ import iconswimm from '../../assets/iconswimm.svg'
 import iconyoga from '../../assets/iconyoga.svg'
 import './footer.scss'
 
+
+/**
+ * 
+ * @module Footer
+ */
+
+
+/**
+ * Footer renders the footer application
+ * @returns {Object}
+ */
 function Footer() {
     return(
         <div className="footer">

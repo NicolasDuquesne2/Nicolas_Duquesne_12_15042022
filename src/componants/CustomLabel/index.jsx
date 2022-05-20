@@ -1,6 +1,19 @@
+//@ts-check
+
 import React from "react"
 
 
+
+/**
+ * 
+ * @module CustomLabel
+ */
+
+
+/**
+ * CustomLabel returns a custom label for Recharts
+ * @returns {Object}
+ */
 function CustomLabel({viewBox, custom}) {
 
     const {cx, cy} = viewBox

@@ -1,3 +1,5 @@
+//@ts-check
+
 import { Link } from "react-router-dom"
 import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
@@ -11,9 +13,8 @@ import './home.scss'
 
 /**
  * Home function renders Home page
- * @returns {void}
+ * @returns {Object}
  */
-
 function Home() {
 
 

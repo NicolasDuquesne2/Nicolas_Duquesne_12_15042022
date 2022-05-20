@@ -1,3 +1,5 @@
+//@ts-check
+
 import { useParams } from 'react-router-dom'
 import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
@@ -8,8 +10,17 @@ import GraphLine from "../../componants/GraphLine"
 import GraphWeb from "../../componants/GraphWeb"
 import './dashboard.scss'
 import GraphCircle from "../../componants/GraphCircle"
-import { useReducer } from 'react'
 
+/**
+ * 
+ * @module UserDashborad
+ */
+
+
+/**
+ * UserDashborad function renders UserDashborad page
+ * @returns {Object}
+ */
 function UserDashboard() {
 
     const { id } = useParams()

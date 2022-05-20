@@ -1,3 +1,5 @@
+//@ts-check
+
 import './tooltip.scss'
 
 function CustomLineChartTooltip({active, payload}) {

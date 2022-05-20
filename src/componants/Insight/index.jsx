@@ -1,9 +1,22 @@
+//@ts-check
+
 import energy from '../../assets/iconenergy.svg'
 import chicken from '../../assets/iconchicken.svg'
 import apple from '../../assets/iconapple.svg'
 import cheeseburger from '../../assets/iconcheeseburger.svg'
 import './insight.scss'
 
+
+/**
+ * 
+ * @module Insight
+ */
+
+
+/**
+ * Insight renders an insight on the user dashboard
+ * @returns {Object}
+ */
 function Insight({name, stats}) {
 
     let image = null

@@ -1,5 +1,18 @@
+//@ts-check
+
 import './hello.scss'
 
+
+/**
+ * 
+ * @module Hello
+ */
+
+
+/**
+ * Hello renders the user dashbaord header
+ * @returns {Object}
+ */
 function Hello({name, sentence}) {
     return (
         <div className="hello">

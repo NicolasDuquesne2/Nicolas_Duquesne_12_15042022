@@ -1,3 +1,5 @@
+//@ts-check
+
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts'
@@ -7,7 +9,16 @@ import './graphbar.scss'
 
 
 
+/**
+ * 
+ * @module GraphBar
+ */
 
+
+/**
+ * GraphBar renders the graph bar with Recharts
+ * @returns {Object}
+ */
 function GraphBar(data) {
   
   const dataArray = data.data
