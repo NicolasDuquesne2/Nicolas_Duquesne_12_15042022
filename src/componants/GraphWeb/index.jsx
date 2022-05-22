@@ -20,6 +20,12 @@ function GraphWeb(data) {
 
     const [perfData, setPerfData] = useState([])
 
+    /**
+     * Sets perfData with datas from typesObject and performance datas
+     * First replace english kinds by the french.
+     * Then replace id kin in the preformance datas by the kind name 
+     * @returns {void}
+     */
     useEffect(() => {
         const dataArray = data.data.data
         const typesObject = data.data.kind

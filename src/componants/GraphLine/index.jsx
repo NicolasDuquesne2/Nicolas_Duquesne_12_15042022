@@ -21,9 +21,19 @@ import './graphline.scss'
  */
 function GraphLine(data) {
 
+    /**
+     * Contains all days objects
+     * @type {Array} dataArray
+     */
     const dataArray = data.data
     const [timeData, setTimeData] = useState([])
 
+
+    /**
+     * Sets timeData useState object with first day letter in french localisation.
+     *  Then add a fake date with a 0 result for styling
+     * @returns {void}
+     */
     useEffect(() => {
 
         //replace day index by first day french letter

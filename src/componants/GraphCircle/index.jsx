@@ -20,6 +20,12 @@ function GraphCircle(rating) {
     
     const [scoreData, setScoreData] = useState([])
 
+    /**
+     * This useEffect set the scoreData with a config array for the pie chart.
+     * Get the ratio from data, multiply by 100
+     * calculate the rest and sets the config array
+     * @returns {void}
+     */
     useEffect(() => {
 
         let rateByHundred = null

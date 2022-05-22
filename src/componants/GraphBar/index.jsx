@@ -22,13 +22,33 @@ import './graphbar.scss'
  */
 function GraphBar(data) {
   
+  /***
+   * dataArray contains all days datas givent by the api
+   * @type {Array} dataArray
+   */
   const dataArray = data.data
+
+  /**
+   * fTick is the first ordinate axis tick
+   * @type {Object} ftick
+   */
   const [fTick, setfTick] = useState(0)
+  /**
+   * sTick is the second ordinate axis tick
+   * @type {Object} ftick
+   */
   const [sTick, setsTick] = useState(0)
+  /**
+   * tTick is the third ordinate axis tick
+   * @type {Object} ftick
+   */
   const [tTick, settTick] = useState(0)
  
+  /**
+   * This useEffect sets 3 ticks from datas. Uses arithmetic progession methode.
+   * @returns {Number}
+   */
   useEffect(() =>{
-    //sets 3 ticks from datas. Uses arithmetic progession methode 
     setfTick(Math.trunc(Math.min.apply(null, dataArray.map(item => item.kilogram)) - 1))
     settTick(Math.round(Math.max.apply(null, dataArray.map(item => item.kilogram)) + 1))
     setsTick(() => {

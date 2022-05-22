@@ -16,6 +16,8 @@ import React from 'react'
 
 /**
  * Insight renders an insight on the user dashboard
+ * First sets config param following english insight kind receved
+ * 
  * @param {Object} props
  * @param {String} props.name
  * @param {String} props.stats
@@ -23,9 +25,25 @@ import React from 'react'
  */
 function Insight({name, stats}) {
 
+    /**
+     * the image name according to english insight name
+     * @type {string}
+     */
     let image = null
+    /**
+     * the css extension for the class icon-wrapper according to english insight name
+     * @type {string}
+     */
     let color = ''
+    /**
+     * The insight unit according to english insight name
+     * @type {string}
+     */
     let unit = ''
+    /**
+     * The insight french localisation according to english insight name
+     * @type {string}
+     */
     let frName = ''
 
     switch(name) {

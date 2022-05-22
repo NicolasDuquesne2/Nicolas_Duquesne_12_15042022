@@ -18,6 +18,10 @@ import './insights.scss'
  * @returns {React.ReactComponentElement}
  */
 function Insights( {data} ) {
+    /**
+     * an entries object casted in array for loop work
+     * @type {Array} entries
+     */
     const entries = Object.entries(data)
     return(
         <div className="insights-wrapper">
