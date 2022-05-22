@@ -16,9 +16,10 @@ import './customlegende.scss'
 function CustomLegende(payload) {
 
     const payloadArr = payload.payload
+
     /**
      * classNames conatains li classe names for having only a red or a black marker without changing li text color
-     * @type {Array} classNames
+     * @type {Array}
      */
     const classNames = [" li li--black", "li li--red"]
     return (

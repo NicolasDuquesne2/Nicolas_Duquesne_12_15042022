@@ -21,20 +21,20 @@ function Home() {
 
     /**
      * users is an array witch takes all fetches
-     * @type {Array} users
+     * @type {Array}
      */
     let users = []
 
     /**
      * usersDatas get fetch datas if nor error nor loading are catch during the fetch action
-     * @type {Array} usersDatas 
+     * @type {Array} 
      */
     let usersDatas = []
 
     users.push(useFetch("http://localhost:3000/user/12"))
     users.push(useFetch("http://localhost:3000/user/18"))
 
-    
+
     users.forEach((user) => {
         if (user.error) {
             alert('Data Error loading')

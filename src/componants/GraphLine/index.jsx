@@ -23,7 +23,7 @@ function GraphLine(data) {
 
     /**
      * Contains all days objects
-     * @type {Array} dataArray
+     * @type {Array}
      */
     const dataArray = data.data
     const [timeData, setTimeData] = useState([])

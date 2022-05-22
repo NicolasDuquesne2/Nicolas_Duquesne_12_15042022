@@ -20,7 +20,7 @@ import './insights.scss'
 function Insights( {data} ) {
     /**
      * an entries object casted in array for loop work
-     * @type {Array} entries
+     * @type {Array}
      */
     const entries = Object.entries(data)
     return(
