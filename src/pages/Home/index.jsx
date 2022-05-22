@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
 import './home.scss'
+import React from "react"
 
 /**
  * 
@@ -13,22 +14,30 @@ import './home.scss'
 
 /**
  * Home function renders Home page
- * @returns {Object}
+ * @returns {React.ReactComponentElement}
  */
 function Home() {
 
 
+    /**
+     * users is an array witch takes all fetches
+     * @type {Array} users
+     */
     let users = []
+
+    /**
+     * usersDatas get fetch datas if nor error nor loading are catch during the fetch action
+     * @type {Array} usersDatas 
+     */
     let usersDatas = []
 
     users.push(useFetch("http://localhost:3000/user/12"))
     users.push(useFetch("http://localhost:3000/user/18"))
 
-
-
+    
     users.forEach((user) => {
         if (user.error) {
-            alert('Erreur de chargement de données')
+            alert('Data Error loading')
         }
 
         if (!user.isLoading) {

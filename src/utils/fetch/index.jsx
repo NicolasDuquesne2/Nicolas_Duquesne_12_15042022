@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react'
 
+/**
+ * 
+ * @module useFetch
+ */
+
+
+/**
+ * useFetch is the fetch service for acessing the api data
+ * @returns {{isLoading: boolean, data: Object, error: boolean }}
+ */
 export function useFetch(url) {
   const [data, setData] = useState({})
   const [error, setError] = useState(false)

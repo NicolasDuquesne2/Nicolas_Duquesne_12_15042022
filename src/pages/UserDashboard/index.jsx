@@ -10,6 +10,7 @@ import GraphLine from "../../componants/GraphLine"
 import GraphWeb from "../../componants/GraphWeb"
 import './dashboard.scss'
 import GraphCircle from "../../componants/GraphCircle"
+import React from 'react'
 
 /**
  * 
@@ -19,7 +20,7 @@ import GraphCircle from "../../componants/GraphCircle"
 
 /**
  * UserDashborad function renders UserDashborad page
- * @returns {Object}
+ * @returns {React.ReactComponentElement}
  */
 function UserDashboard() {
 
@@ -48,7 +49,7 @@ function UserDashboard() {
 
     
     if(userData.error || userActivity.error || userAvSession.error || userPerformance.error) {
-        alert(`Erreur de chargement des datas : ${userData.error}`)
+        alert(`Error data loading : ${userData.error}`)
     }
 
     if(!userData.isLoading && !userActivity.isLoading && !userAvSession.isLoading && !userPerformance.isLoading) {
