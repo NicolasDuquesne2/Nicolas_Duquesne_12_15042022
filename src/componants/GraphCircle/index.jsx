@@ -82,7 +82,7 @@ function GraphCircle(rating) {
                                             {
 
                                                 span1: {
-                                                    value: `${scoreData[0]?.value}%`,
+                                                    value: `${scoreData[1]?.value}%`,
                                                     fontWeight: 500,
                                                     fontSize: "26px"
                                                 },
