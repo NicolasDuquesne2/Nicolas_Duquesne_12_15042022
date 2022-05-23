@@ -23,22 +23,26 @@ function GraphBar(data) {
   /***
    * dataArray contains all days datas givent by the api
    * @type {Array}
+   * @alias module:GraphBar.dataArray
    */
   const dataArray = data.data
 
   /**
    * fTick is the first ordinate axis tick
    * @type {Object}
+   * @alias module:GraphBar.fTick
    */
   const [fTick, setfTick] = useState(0)
   /**
    * sTick is the second ordinate axis tick
    * @type {Object}
+   * @alias module:GraphBar.sTick
    */
   const [sTick, setsTick] = useState(0)
   /**
    * tTick is the third ordinate axis tick
    * @type {Object}
+   * @alias module:GraphBar.tTick
    */
   const [tTick, settTick] = useState(0)
  

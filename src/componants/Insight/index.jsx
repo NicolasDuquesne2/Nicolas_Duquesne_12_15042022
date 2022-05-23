@@ -28,21 +28,25 @@ function Insight({name, stats}) {
     /**
      * the image name according to english insight name
      * @type {string}
+     * @alias module:Insight.image
      */
     let image = null
     /**
      * the css extension for the class icon-wrapper according to english insight name
      * @type {string}
+     * @alias module:Insight.color
      */
     let color = ''
     /**
      * The insight unit according to english insight name
      * @type {string}
+     * @alias module:Insight.unit
      */
     let unit = ''
     /**
      * The insight french localisation according to english insight name
      * @type {string}
+     * @alias module:Insight.frName
      */
     let frName = ''
 

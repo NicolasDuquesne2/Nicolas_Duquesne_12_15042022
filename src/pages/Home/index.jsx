@@ -22,12 +22,14 @@ function Home() {
     /**
      * users is an array witch takes all fetches
      * @type {Array}
+     * @alias module:Home.users
      */
     let users = []
 
     /**
      * usersDatas get fetch datas if nor error nor loading are catch during the fetch action
-     * @type {Array} 
+     * @type {Array}
+     * @alias module:Home.usersDatas
      */
     let usersDatas = []
 

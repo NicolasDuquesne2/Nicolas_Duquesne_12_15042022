@@ -21,6 +21,7 @@ function Insights( {data} ) {
     /**
      * an entries object casted in array for loop work
      * @type {Array}
+     * @alias module:Insights.entries
      */
     const entries = Object.entries(data)
     return(

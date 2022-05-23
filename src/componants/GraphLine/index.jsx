@@ -31,8 +31,9 @@ function GraphLine(data) {
      * Sets timeData useState object with first day letter in french localisation.
      *  Then add a fake date with a 0 result for styling
      * @returns {void}
+     * @alias module:GraphLine.setTimeDataDays
      */
-    useEffect(() => {
+    const setTimeDataDays=  useEffect(() => {
 
         //replace day index by first day french letter
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -45,7 +46,7 @@ function GraphLine(data) {
         dataArray.reverse()
         setTimeData(dataArray)
     }, [])
-    
+
     return (
         <div className="graphline-wrapper">
             <h4 className="graphline-wrapper__title">Durée moyenne des sessions</h4>

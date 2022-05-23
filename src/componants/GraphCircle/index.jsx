@@ -21,12 +21,13 @@ function GraphCircle(rating) {
     const [scoreData, setScoreData] = useState([])
 
     /**
-     * This useEffect set the scoreData with a config array for the pie chart.
+     * This useEffect sets the scoreData with a config array for the pie chart.
      * Get the ratio from data, multiply by 100
      * calculate the rest and sets the config array
      * @returns {void}
+     * @alias module:GraphCircle.setPieChartConfig
      */
-    useEffect(() => {
+    const setPieChartConfig = useEffect(() => {
 
         let rateByHundred = null
         rating.rating.hasOwnProperty('score') ? rateByHundred = (rating.rating.score*100) : rateByHundred = (rating.rating.todayScore*100)

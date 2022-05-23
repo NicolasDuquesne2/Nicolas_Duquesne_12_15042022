@@ -29,21 +29,25 @@ function UserDashboard() {
     /**
      * userData
      * @type {Object}
+     * @alias module:UserDashborad.usersData
      */
     const userData = useFetch(`http://localhost:3000/user/${id}`)
     /**
      * userActivity
      * @type {Object}
+     * @alias module:UserDashborad.userActivity
      */
     const userActivity = useFetch(`http://localhost:3000/user/${id}/activity`)
     /**
      * userAvSession
      * @type {Object}
+     * @alias module:UserDashborad.userAvSession
      */
     const userAvSession = useFetch(`http://localhost:3000/user/${id}/average-sessions`)
     /**
      * userPerformance
      * @type {Object}
+     * @alias module:UserDashborad.userPerformance
      */
     const userPerformance = useFetch(`http://localhost:3000/user/${id}/performance`)
 

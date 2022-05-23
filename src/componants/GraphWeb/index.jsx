@@ -23,10 +23,11 @@ function GraphWeb(data) {
     /**
      * Sets perfData with datas from typesObject and performance datas
      * First replace english kinds by the french.
-     * Then replace id kin in the preformance datas by the kind name 
+     * Then replace id kind in the preformance datas by the kind name 
      * @returns {void}
+     * @alias module:GraphWeb.setFrenchKinds
      */
-    useEffect(() => {
+    const setFrenchKinds = useEffect(() => {
         const dataArray = data.data.data
         const typesObject = data.data.kind
         const intermArray = [...dataArray]
@@ -44,10 +45,9 @@ function GraphWeb(data) {
             return elmnt
         }
         )
-        
+        console.log(intermArray)
         setPerfData(intermArray)
     }, [])
-
 
     return (
         <div className="graphweb-wrapper">
