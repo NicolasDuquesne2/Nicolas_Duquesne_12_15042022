@@ -1,5 +1,4 @@
 //@ts-check
-
 import React from "react"
 import { Rectangle } from "recharts"
 

@@ -1,5 +1,3 @@
-//@ts-check
-
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts'
