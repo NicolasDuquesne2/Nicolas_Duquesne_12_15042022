@@ -1,5 +1,6 @@
 //@ts-check
 
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
@@ -10,7 +11,7 @@ import GraphLine from "../../componants/GraphLine"
 import GraphWeb from "../../componants/GraphWeb"
 import './dashboard.scss'
 import GraphCircle from "../../componants/GraphCircle"
-import React from 'react'
+import Error from '../Error'
 
 /**
  * 
@@ -52,8 +53,10 @@ function UserDashboard() {
     const userPerformance = useFetch(`http://localhost:3000/user/${id}/performance`)
 
     
-    if(userData.error || userActivity.error || userAvSession.error || userPerformance.error) {
-        alert(`Error data loading : ${userData.error}`)
+    if(userData.error.status || userActivity.error.status || userAvSession.error.status || userPerformance.error.status) {
+        return (
+            <Error  code= "500"/>
+        )
     }
 
     if(!userData.isLoading && !userActivity.isLoading && !userAvSession.isLoading && !userPerformance.isLoading) {
