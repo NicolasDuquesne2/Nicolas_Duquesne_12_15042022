@@ -1,10 +1,12 @@
 //@ts-check
 
+import React from "react"
 import { Link } from "react-router-dom"
 import { useFetch } from '../../utils/fetch'
 import Footer from "../../componants/Footer"
+import { useDataProvider } from '../../utils/DataProvider'
 import './home.scss'
-import React from "react"
+import Error from "../Error"
 
 /**
  * 
@@ -32,20 +34,37 @@ function Home() {
      * @alias module:Home.usersDatas
      */
     let usersDatas = []
+    let errors = []
 
     users.push(useFetch("http://localhost:3000/user/12"))
     users.push(useFetch("http://localhost:3000/user/18"))
+    
+    /*
+    const alpha = useDataProvider({source: "api", component: "Home"})
 
+    if (typeof(alpha) != 'undefined') {
+        console.log("module Home")
+        console.log(alpha)
+    }*/
 
     users.forEach((user) => {
-        if (user.error) {
-            alert('Data Error loading')
+        if (user.error.status) {
+            errors.push(user.error)
         }
 
         if (!user.isLoading) {
             usersDatas.push(user.data)
         }
     })
+
+    if (errors.find(err => err.status === true))
+    {
+
+        return (
+            <Error  code= "500"/>
+        )
+    }
+
 
 
     return (
