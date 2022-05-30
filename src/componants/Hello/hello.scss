@@ -2,14 +2,22 @@
 
 .hello{
     &__title {
-        font-size: 3rem;
+        font-size: 2rem;
         & > span{
             color: $third-color;
+        }
+
+        @media screen and (min-width: 1332px) {
+            font-size: 3rem;
         }
     }
 
     &__sentence{
-        font-size: 1.125rem;
+        font-size: 0.8rem;
+
+        @media screen and (min-width: 1332px) {
+            font-size: 1.125rem;
+        }
     }
 
 }

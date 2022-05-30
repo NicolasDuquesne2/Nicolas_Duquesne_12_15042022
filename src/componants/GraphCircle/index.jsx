@@ -52,15 +52,15 @@ function GraphCircle(rating) {
     return (
         <div className="graphCircle-wrapper">
             <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={730} height={250}>
+                <PieChart >
                     <Pie 
                         data={scoreData} 
                         dataKey="value"
                         nameKey="name" 
                         cx="50%" 
                         cy="50%" 
-                        innerRadius={70} 
-                        outerRadius={80} 
+                        innerRadius= "55%" 
+                        outerRadius= "65%" 
                         fill="#FF0101"
                         paddingAngle={0}
                         startAngle={180}
@@ -74,7 +74,7 @@ function GraphCircle(rating) {
                             />
 
                         ))}
-                     <Label value={scoreData[1]?.name} position="outside" offset={10} fontSize="15" fontWeight={500}/>
+                     <Label value={scoreData[1]?.name} position="outside" offset={10} fontSize="8" fontWeight={500}/>
                      <Label
                         position="center"
                         content = {<CustomLabel
@@ -85,18 +85,18 @@ function GraphCircle(rating) {
                                                 span1: {
                                                     value: `${scoreData[1]?.value}%`,
                                                     fontWeight: 500,
-                                                    fontSize: "26px"
+                                                    fontSize: "20px"
                                                 },
                 
                                                 span2: {
                                                     value: "de votre",
-                                                    fontSize: "16px",
+                                                    fontSize: "14px",
                                                     fill: "#74798C"
                                                 },
 
                                                 span3: {
                                                     value: "objectif",
-                                                    fontSize: "16px",
+                                                    fontSize: "14px",
                                                     fill: "#74798C"
                                                 }
                                             }

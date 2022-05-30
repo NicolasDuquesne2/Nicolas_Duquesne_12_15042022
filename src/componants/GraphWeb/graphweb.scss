@@ -3,11 +3,16 @@
 .graphweb-wrapper {
     display: flex;
     align-items: flex-end;
-    height: 263px;
+    height: 200px;
     width: 30%;
     background: $sixth-color;
     position: relative;
     border-radius: 8px;
+
+    @media screen and (min-width: 1332px ) {
+        width: 30%;
+        height: 263px;
+    }
 }
 
 .recharts-polar-grid-angle {

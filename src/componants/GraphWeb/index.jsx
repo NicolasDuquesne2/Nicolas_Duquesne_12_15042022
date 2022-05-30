@@ -52,9 +52,9 @@ function GraphWeb(data) {
     return (
         <div className="graphweb-wrapper">
             <ResponsiveContainer width="100%" height="100%">
-                <RadarChart  cx="50%" cy="50%" outerRadius={90} data={perfData}>
+                <RadarChart  cx="50%" cy="50%" outerRadius= "65%" data={perfData}>
                     <PolarGrid />
-                    <PolarAngleAxis dataKey="kind"  tick={{fill:"#FFFF", fontSize: "12"}} />
+                    <PolarAngleAxis dataKey="kind"  tick={{fill:"#FFFF", fontSize: "8"}} />
                     <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.6} label={false} dot={false}/>
                 </RadarChart>
             </ResponsiveContainer>
