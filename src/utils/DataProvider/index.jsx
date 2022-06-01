@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import MokeDatas from '../Moke/data'
-//import { useFetch } from './../fetch'
 
 
  export function useDataProvider (query) {
@@ -20,12 +19,11 @@ import MokeDatas from '../Moke/data'
     const [isLoading, setLoading] = useState(true)
 
 
-    const getData = async (url) => {
+    const getData = async (urls) => {
         try {
-            const response = await fetch(url)
-            const jsonResponse = await response.json()
-
-            dataFetch.push(jsonResponse.data)
+            const response = await Promise.all(urls.map(url => fetch(url)))
+            const jsonResponse = await Promise.all(response.map(res => res.json()))
+            setDataFetch(jsonResponse)
 
         } catch (err) {
             console.log(err)
@@ -39,15 +37,11 @@ import MokeDatas from '../Moke/data'
     useEffect(() => {
 
         if (query.source === "api" && query.component === "Home") {
-            httpApi.components.Home.forEach((http) => {
-                getData(http)
-            })
+            getData(httpApi.components.Home)
         }
 
         if(query.source === "api" && query.component === "Dashboard") {
-            httpApi.components.Dasboard.forEach((http) => {
-                getData(http)
-            })
+            getData(httpApi.components.Dasboard)
         }
 
         if (query.source === "moke" && query.component === "Home") {

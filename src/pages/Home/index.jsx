@@ -42,8 +42,8 @@ function Home() {
                         {usersDatas.map((userData, index) => (
                             <Link
                                 key={`link-${index}`} 
-                                to={`/user/${userData.id}`} 
-                            >{`${userData.userInfos.firstName} ${userData.userInfos.lastName}`}</Link>
+                                to={`/user/${userData.data.id}`} 
+                            >{`${userData.data.userInfos.firstName} ${userData.data.userInfos.lastName}`}</Link>
                         ))}
                     </ul>
                 </div>

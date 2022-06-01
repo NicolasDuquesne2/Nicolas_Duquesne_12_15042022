@@ -27,31 +27,12 @@ function UserDashboard() {
 
     const { id } = useParams()
 
-    /**
-     * userData
-     * @type {Object}
-     * @alias module:UserDashborad.usersData
-     */
-    //const userData = useFetch(`http://localhost:3000/user/${id}`)
-    /**
-     * userActivity
-     * @type {Object}
-     * @alias module:UserDashborad.userActivity
-     */
-    //const userActivity = useFetch(`http://localhost:3000/user/${id}/activity`)
-    /**
-     * userAvSession
-     * @type {Object}
-     * @alias module:UserDashborad.userAvSession
-     */
-    //const userAvSession = useFetch(`http://localhost:3000/user/${id}/average-sessions`)
-    /**
-     * userPerformance
-     * @type {Object}
-     * @alias module:UserDashborad.userPerformance
-     */
-    //const userPerformance = useFetch(`http://localhost:3000/user/${id}/performance`)
 
+     /**
+     * usersDatas is an array witch takes all fetches
+     * @type {Array|Object}
+     * @alias module:Home.users
+     */
     const fetchDatas = useDataProvider({source: "api", component: "Dashboard", id: id})
    
     if(fetchDatas?.error === true) {
@@ -71,27 +52,27 @@ function UserDashboard() {
                 <Footer />
                 <div className="dashboard">
                     <Hello 
-                        name = {userData.userInfos.firstName}
+                        name = {userData.data.userInfos.firstName}
                         sentence='Félicitations ! vous avez explosé vos objectifs hier'
                     />
                     <div className="dashboard__dashboard-wrapper">
                         <div className="graphs-wrapper">
                             <GraphBar 
-                                data = {userActivity.sessions}
+                                data = {userActivity.data.sessions}
                             />
                             <div className="mini-graphs-wrapper">
                                 <GraphLine 
-                                    data = {userAvSession.sessions}
+                                    data = {userAvSession.data.sessions}
                                 />
                                 <GraphWeb 
-                                    data = {userPerformance}
+                                    data = {userPerformance.data}
                                 />
                                 <GraphCircle 
-                                    rating = {userData}
+                                    rating = {userData.data}
                                 />
                             </div>
                         </div>
-                        < Insights data = {userData.keyData}/>
+                        < Insights data = {userData.data.keyData}/>
                     </div>
                 </div>
             </div>
