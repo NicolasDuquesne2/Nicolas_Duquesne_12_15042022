@@ -17,8 +17,9 @@ import './graphweb.scss'
  * @returns {React.ReactComponentElement}
  */
 function GraphWeb(data) {
-
     const [perfData, setPerfData] = useState([])
+
+
 
     /**
      * Sets perfData with datas from typesObject and performance datas
@@ -27,6 +28,8 @@ function GraphWeb(data) {
      * @returns {void}
      * @alias module:GraphWeb.setFrenchKinds
      */
+
+    
     const setFrenchKinds = useEffect(() => {
         const dataArray = data.data.data
         const typesObject = data.data.kind
@@ -45,7 +48,6 @@ function GraphWeb(data) {
             return elmnt
         }
         )
-        console.log(intermArray)
         setPerfData(intermArray)
     }, [])
 
