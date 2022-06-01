@@ -1,7 +1,16 @@
 import { useState, useEffect } from 'react'
 import MokeDatas from '../Moke/data'
 
+/**
+ * 
+ * @module useDataProvider
+ */
 
+
+/**
+ * useDataProvider function returns datas from api or moke datas
+ * @returns {(Array|boolean)} datas array or an error boolean
+ */
  export function useDataProvider (query) {
 
     const httpApi = {
@@ -19,11 +28,15 @@ import MokeDatas from '../Moke/data'
     const [isLoading, setLoading] = useState(true)
 
 
-    const getData = async (urls) => {
+    /**
+     * fetchDataFromAPI function returns datas from api and takes over multi url fetch
+     * @returns {(Array)} datas array from json
+     */
+    const fetchDataFromAPI = async (urls) => {
         try {
             const response = await Promise.all(urls.map(url => fetch(url)))
             const jsonResponse = await Promise.all(response.map(res => res.json()))
-            setDataFetch(jsonResponse)
+            setDataFetch(jsonResponse.map(jsonRes => (jsonRes.data)))
 
         } catch (err) {
             console.log(err)
@@ -31,17 +44,16 @@ import MokeDatas from '../Moke/data'
         } finally {
             setLoading(false)
         }
-    } 
-
+    }
 
     useEffect(() => {
 
         if (query.source === "api" && query.component === "Home") {
-            getData(httpApi.components.Home)
+            fetchDataFromAPI(httpApi.components.Home)
         }
 
         if(query.source === "api" && query.component === "Dashboard") {
-            getData(httpApi.components.Dasboard)
+            fetchDataFromAPI(httpApi.components.Dasboard)
         }
 
         if (query.source === "moke" && query.component === "Home") {
@@ -50,10 +62,10 @@ import MokeDatas from '../Moke/data'
         }
 
         if (query.source === "moke" && query.component === "Dashboard") {
-            dataFetch.push(MokeDatas.USER_MAIN_DATA.find(user => user.id === Number(query.id)))
-            dataFetch.push(MokeDatas.USER_ACTIVITY.find(user => user.userId === Number(query.id)))
-            dataFetch.push(MokeDatas.USER_AVERAGE_SESSIONS.find(user => user.userId === Number(query.id)))
-            dataFetch.push(MokeDatas.USER_PERFORMANCE.find(user => user.userId === Number(query.id)))
+            setDataFetch([MokeDatas.USER_MAIN_DATA.find(user => user.id === Number(query.id)), 
+                        MokeDatas.USER_ACTIVITY.find(user => user.userId === Number(query.id)), 
+                        MokeDatas.USER_AVERAGE_SESSIONS.find(user => user.userId === Number(query.id)), 
+                        MokeDatas.USER_PERFORMANCE.find(user => user.userId === Number(query.id))])
             setLoading(false)
         }
 

@@ -28,51 +28,60 @@ function UserDashboard() {
     const { id } = useParams()
 
 
+    /**
+     * request is an object witch gives instructions for fetch datas
+     * @param {{source: string, component: string}} obj request
+     * @alias module:Home.users
+     */
+    const request = {source: "moke", component: "Dashboard", id: id}
+
      /**
-     * usersDatas is an array witch takes all fetches
+     * fetchDatas is an array witch takes all fetches
      * @type {Array|Object}
      * @alias module:Home.users
      */
-    const fetchDatas = useDataProvider({source: "api", component: "Dashboard", id: id})
-   
+    const fetchDatas = useDataProvider(request)
+    
     if(fetchDatas?.error === true) {
         return (
             <Error  code= "500"/>
         )
     }
 
+
     if(typeof(fetchDatas) != "undefined") {
-        const userData = fetchDatas[0]
-        const userActivity = fetchDatas[1]
-        const userAvSession = fetchDatas[2]
-        const userPerformance = fetchDatas[3]
+
+        let userData = fetchDatas[0]
+        let userActivity = fetchDatas[1]
+        let userAvSession = fetchDatas[2]
+        let userPerformance = fetchDatas[3]
 
         return (
             <div className="wrapper">
                 <Footer />
                 <div className="dashboard">
                     <Hello 
-                        name = {userData.data.userInfos.firstName}
+                        name = {userData.userInfos.firstName}
                         sentence='Félicitations ! vous avez explosé vos objectifs hier'
                     />
                     <div className="dashboard__dashboard-wrapper">
                         <div className="graphs-wrapper">
                             <GraphBar 
-                                data = {userActivity.data.sessions}
+                                data = {userActivity.sessions}
                             />
                             <div className="mini-graphs-wrapper">
                                 <GraphLine 
-                                    data = {userAvSession.data.sessions}
+                                    data = {userAvSession.sessions}
                                 />
                                 <GraphWeb 
-                                    data = {userPerformance.data}
+                                    data = {userPerformance}
                                 />
                                 <GraphCircle 
-                                    rating = {userData.data}
+                                    rating = {userData}
                                 />
                             </div>
                         </div>
-                        < Insights data = {userData.data.keyData}/>
+                        < Insights data = {userData.keyData}/>
                     </div>
                 </div>
             </div>
@@ -81,6 +90,6 @@ function UserDashboard() {
 }
 
 
-export default UserDashboard
+export default React.memo(UserDashboard)
 
 

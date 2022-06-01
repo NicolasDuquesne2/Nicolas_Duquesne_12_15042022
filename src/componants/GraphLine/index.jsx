@@ -23,8 +23,9 @@ function GraphLine(data) {
      * Contains all days objects
      * @type {Array}
      */
-    const dataArray = data.data
+    const dataArray = [...data.data]
     const [timeData, setTimeData] = useState([])
+    const lineData = []
 
 
     /**
@@ -38,13 +39,13 @@ function GraphLine(data) {
         //replace day index by first day french letter
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
         dataArray.map((day, index) => (
-            day.day = days[index]
+            lineData.push({day: days[index], sessionLength: dataArray[index].sessionLength})
         ))
 
-        dataArray.reverse()
-        dataArray.push({day: '', sessionLength: 0})
-        dataArray.reverse()
-        setTimeData(dataArray)
+        lineData.reverse()
+        lineData.push({day: '', sessionLength: 0})
+        lineData.reverse()
+        setTimeData(lineData)
     }, [])
 
     return (

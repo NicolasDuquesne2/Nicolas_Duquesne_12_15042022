@@ -1,6 +1,6 @@
 //@ts-check
 
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import Footer from "../../componants/Footer"
 import Error from "../Error"
@@ -25,7 +25,7 @@ function Home() {
      * @type {Array|Object}
      * @alias module:Home.users
      */
-    const usersDatas = useDataProvider({source: "api", component: "Home"})
+    const usersDatas = useDataProvider({source: "moke", component: "Home"})
 
     if(usersDatas?.error === true) {
         return (
@@ -34,6 +34,8 @@ function Home() {
     }
     
     if (typeof(usersDatas) != "undefined") {
+        
+
         return (
             <div className="wrapper">
                 <Footer />
@@ -42,8 +44,8 @@ function Home() {
                         {usersDatas.map((userData, index) => (
                             <Link
                                 key={`link-${index}`} 
-                                to={`/user/${userData.data.id}`} 
-                            >{`${userData.data.userInfos.firstName} ${userData.data.userInfos.lastName}`}</Link>
+                                to={`/user/${userData.id}`} 
+                            >{`${userData.userInfos.firstName} ${userData.userInfos.lastName}`}</Link>
                         ))}
                     </ul>
                 </div>
@@ -52,4 +54,4 @@ function Home() {
     }
 }
 
-export default Home
+export default React.memo(Home)
