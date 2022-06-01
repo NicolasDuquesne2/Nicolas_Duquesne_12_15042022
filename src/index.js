@@ -22,8 +22,8 @@ root.render(
   <Router >
     <Header />
     <Routes >
-      <Route exact path="/" element={ <Home />} />
-      <Route path="/user/:id" element={ <UserDashboard />} />
+      <Route exact path="/" element={ <Home /> } />
+      <Route path="/user/:id" element={ <UserDashboard /> } />
       <Route path="*" element={ < Error code="404" />} />
     </Routes>
   </Router>
