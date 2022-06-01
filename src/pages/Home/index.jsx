@@ -1,6 +1,6 @@
 //@ts-check
 
-import React, { useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import Footer from "../../componants/Footer"
 import Error from "../Error"

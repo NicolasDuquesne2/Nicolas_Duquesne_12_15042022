@@ -1,7 +1,7 @@
 //@ts-check
 
 import React from "react"
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { RadarChart, PolarGrid, ResponsiveContainer, PolarAngleAxis, Radar } from 'recharts';
 import './graphweb.scss'
 

@@ -46,7 +46,11 @@ import MokeDatas from '../Moke/data'
         }
     }
 
-    useEffect(() => {
+    /**
+     * selectDatas function launches api call or moke datas selection according to query parameters
+     * @returns {void}
+     */
+    const selectDatas = useEffect(() => {
 
         if (query.source === "api" && query.component === "Home") {
             fetchDataFromAPI(httpApi.components.Home)
